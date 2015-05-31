@@ -18,7 +18,7 @@ class CheckpointPanel extends React.Component {
   handleComplete(item){
 
     if(!item) return;
-    
+
     let id = this.props.model.id;    
     let checkpoint ={ id };
 
@@ -38,9 +38,14 @@ class CheckpointPanel extends React.Component {
   }
 
   handleHover(item, status){
-    // let { context } = this.props;
-    // let selection = this._getSelection(item);
-    // Actions.setHighlight(selection, status, context);
+
+    console.log('CP handleover');
+    console.log(item);
+    console.log(status);
+
+    let { context } = this.props;
+    let selection = this._getSelection(item);
+    Actions.setHighlight(selection, status, context);
   }
 
   _getSelection(item){

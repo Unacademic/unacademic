@@ -28,10 +28,6 @@
 .app-is-curate .map {
   stroke: $curateColor;
 
-  .point {
-    fill: $curateColor;    
-  }
-
   .curve {
     fill: none;
     stroke-width: 4;  
@@ -41,16 +37,25 @@
     stroke-width: 2;
   }
 
-  .stop-is-incomplete .point {
+  .stop-is-incomplete {
     fill: $baseColor;
   } 
+
+  .point-is-complete {
+    fill: $curateColor;
+  }
+
+  .point-is-highlight {
+    fill: $curateColor;
+  }
+
 }
 
 .app-is-learn .map {
   stroke: $learnColor;
 
   .point {
-    fill: $learnColor;
+    fill: $baseColor;
   }
 
   .curve {
@@ -62,12 +67,14 @@
     stroke-width: 2;
   }  
 
-  .stop-is-incomplete .point-is-incomplete{
-    fill: $baseColor;
-  } 
-
   .point-is-complete {
     fill: $learnColor;
   }
+
+  .point-is-highlight {
+    fill: $learnColor;
+  }
+
+
 }
 

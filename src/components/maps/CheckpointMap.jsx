@@ -21,7 +21,8 @@ class CheckpointMap extends React.Component {
     let center = width / 2;
     let x = center;
     let y = baseLine;
-    let params = { x, y, radius, center, checkpoint }
+    let highlight_points = true;
+    let params = { x, y, radius, center, checkpoint,  highlight_points}
 
     return (
       <svg viewBox={ `0 0 ${width} ${height}` }width={ width } height={ height } className="map">
