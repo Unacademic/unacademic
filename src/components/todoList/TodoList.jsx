@@ -12,7 +12,7 @@ class TodoList extends React.Component {
 
       return (
         <TodoListItem key={ index }
-          checkDone={ handleComplete }
+          handleComplete={ handleComplete }
           handleHover={ handleHover }
           selectElement = { selectElement }
           item={ item }/>

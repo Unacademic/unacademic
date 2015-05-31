@@ -28,7 +28,6 @@ class WaypointPanel extends React.Component {
   }
 
   selectCheckpoint(selection){
-
     let { id, title } = this.props.model;
     selection.waypoint = { id, title };
 
