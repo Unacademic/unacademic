@@ -8,9 +8,9 @@ class Viewer extends React.Component {
     let iframe_able = true;
 
     if(data.content === null)
-
       if(data.media.hasOwnProperty('html')) {
-        return data.media.html;
+        let html_link = '<div><a href=' + data.url + ' target="_blank">' + data.title + '</a></div><br>';
+        return  html_link + data.media.html;
       }
 
       else {
@@ -21,10 +21,12 @@ class Viewer extends React.Component {
           warning += '<br><br>Please refer to the following link:\n'
           return warning + '<div><a href=' + data.url + ' target="_blank">' + data.title + '</a></div></warning>'
         } else {
-          return '<iframe frameborder="0" src=' + data.url + '>' + data.url + '</iframe>'
+          let html_link = '<div><a href=' + data.url + ' target="_blank">' + data.title + '</a></div><br>';
+          return html_link + '<iframe frameborder="0" src=' + data.url + '>' + data.url + '</iframe>'
         }
       }
-      return data.content
+      let html_link = '<div><a href=' + data.url + ' target="_blank">' + data.title + '</a></div><br>';
+      return html_link + data.content
   }
 
   render() {

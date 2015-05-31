@@ -38,11 +38,6 @@ class CheckpointPanel extends React.Component {
   }
 
   handleHover(item, status){
-
-    console.log('CP handleover');
-    console.log(item);
-    console.log(status);
-
     let { context } = this.props;
     let selection = this._getSelection(item);
     Actions.setHighlight(selection, status, context);
