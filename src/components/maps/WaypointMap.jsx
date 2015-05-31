@@ -27,7 +27,8 @@ class WaypointMap extends React.Component {
       let maxHeight = (textY - padding);
       let maxResources = 2;
       let baseHeight = maxHeight / maxResources;
-      let params = { x, y, radius, center, baseHeight, textY, checkpoint }
+      let highlight_points = false;
+      let params = { x, y, radius, center, baseHeight, textY, checkpoint, highlight_points }
 
       return <Stop
         handleHover={ handleHover.bind(this) }

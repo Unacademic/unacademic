@@ -27,6 +27,15 @@ class WaypointPanel extends React.Component {
     Actions.setHighlight(selection, status, context);
   }
 
+  selectCheckpoint(selection){
+    let { id, title } = this.props.model;
+    selection.waypoint = { id, title };
+
+    selection.type = "checkpoint";
+
+    Actions.setLevel(selection);
+  }  
+
   _getSelection(item){
     let { model } = this.props;
     let { id } = model;
@@ -75,6 +84,7 @@ class WaypointPanel extends React.Component {
           { context === 'card' && <TodoList title={ 'Checkpoints' }
               handleHover={ this.handleHover.bind(this) }
               handleComplete={ this.handleComplete.bind(this) }
+              selectElement={ this.selectCheckpoint.bind(this) }
               collection={ checkpoints }/> }
         </section>
       </section>
