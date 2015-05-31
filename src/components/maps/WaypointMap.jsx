@@ -7,21 +7,32 @@ class WaypointMap extends React.Component {
     this.state = {
       height: 245,
       width: 418,
-      padding: 30,
+      padding: 55,
       radius: 20
     }
   }
 
   render() {
+
     let { height, width, radius, padding } = this.state;
     let { model, handleComplete, handleHover } = this.props;
     let { checkpoints } = model;
     let baseLine = height / 2;
     let center = width / 2;
-    let interval = ((width - padding * 3) / (checkpoints.length - 1));
+
+    let density = checkpoints.length / 5;
+    padding += padding * (1 - density) * 2;
+
+    let len = width - (padding * 2);
+    let interval = len / (checkpoints.length - 1);
+
+
+    //padding += padding * (1 - checkpoints.length / 5);
+    //let interval = ((width - padding) / (checkpoints.length - 1));
 
     let drawStops = R.mapIndexed((checkpoint, index) => {
-      let x = (padding * 1.5) + (index * interval);
+      let x = padding + (index * interval);
+      //let x = (padding * 1.5) + (index * interval);
       let y = baseLine;
       let textY = baseLine - padding;
       let maxHeight = (textY - padding);
