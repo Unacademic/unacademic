@@ -67,12 +67,6 @@ class API {
 
     two.model.complete = two.model.complete ? false : true;
 
-    console.log('API - updateProp');
-    console.log('two');
-    console.log(two);
-    console.log('one');
-    console.log(one);
-
     if(two.type === 'checkpoint') {
       console.log('checkpoint');
       R.map(function (res) {
