@@ -3,7 +3,7 @@ import R from 'ramda';
 import classnames from 'classnames';
 
 import CheckpointMap from '../maps/CheckpointMap.jsx';
-import ResourceList from './ResourceList.jsx'
+import TodoList from '../todoList/TodoList.jsx';
 import DescriptionSection from './sections/DescriptionSection.jsx'
 import Actions from '../../actions/index';
 
@@ -24,6 +24,9 @@ class CheckpointPanel extends React.Component {
   selectResource(selection){
     let { id, title } = this.props.model;
     selection.checkpoint = { id, title };
+
+    selection.type = "resource";
+
     Actions.setLevel(selection);
   }
 
@@ -78,7 +81,11 @@ class CheckpointPanel extends React.Component {
 
           { context === 'sidebar' && <DescriptionSection description={ introduction }/> }
           { context === 'sidebar' && instructionsPanel() }
-          { context === 'card' && <ResourceList selectResource={ this.selectResource.bind(this) } resources={ resources } /> }
+          { context === 'card' && <TodoList title={ 'Resources' }
+              handleHover={ this.handleHover.bind(this) }
+              handleComplete={ this.handleComplete.bind(this) }
+              selectElement={ this.selectResource.bind(this) }
+              collection={ resources }/> }
         </section>
       </div>
     )

@@ -4,11 +4,13 @@ import R from 'ramda';
 class TodoListItem extends React.Component {
 
   render() {
-    let { item, checkDone, handleHover } = this.props;
+    let { item, checkDone, handleHover, selectElement } = this.props;
 
-    let title;
-
+    let title = item.title;
     let id = item.id;
+
+    let selection = {id, title};
+
     if(item.title.length > 28){
       title = item.title.substring(0, 28) + ' ...';
     } else {
@@ -25,7 +27,7 @@ class TodoListItem extends React.Component {
     return (
       <li onMouseOut={ handleHover.bind(this, id, false) }
         onMouseOver={ handleHover.bind(this, id, true) }
-        onClick={ checkDone.bind(this, id) }
+        onClick={ selectElement.bind(this, selection) }
         className={ classes.join(' ') }>
           <p><span className={ `checkbox checkbox-is-${isComplete}` }></span>{ title }</p>
       </li>

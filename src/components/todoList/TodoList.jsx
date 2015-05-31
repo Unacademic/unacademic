@@ -6,7 +6,7 @@ import TodoListItem from './TodoListItem.jsx';
 class TodoList extends React.Component {
 
   render() {
-    let { collection, title, handleComplete, handleHover } = this.props;
+    let { collection, title, handleComplete, handleHover, selectElement } = this.props;
 
     let items = R.mapIndexed((item, index) => {
 
@@ -14,6 +14,7 @@ class TodoList extends React.Component {
         <TodoListItem key={ index }
           checkDone={ handleComplete }
           handleHover={ handleHover }
+          selectElement = { selectElement }
           item={ item }/>
       )
     }, collection);
