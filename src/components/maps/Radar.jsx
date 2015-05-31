@@ -18,7 +18,7 @@ class Radar extends React.Component {
   }
 
   getPoint(point, i) {
-    return <circle cx={ point[0] } cy={ point[1] } r={ 12 } className="point"/>
+    return <circle cx={ point[0] } cy={ point[1] } r={ 12 } className="radar-point"/>
   }
 
   render() {

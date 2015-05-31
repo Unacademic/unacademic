@@ -28,6 +28,10 @@
 .app-is-curate .map {
   stroke: $curateColor;
 
+  .radar-point {
+    fill: $curateColor;
+  }
+
   .curve {
     fill: none;
     stroke-width: 4;  
@@ -56,6 +60,10 @@
 
   .point {
     fill: $baseColor;
+  }
+
+  .radar-point {
+    fill: $learnColor;
   }
 
   .curve {
