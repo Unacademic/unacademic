@@ -8,7 +8,7 @@ class Stop extends React.Component {
   constructor(props){
     super(props);
     this.radius = this.props.params.radius;
-    this.state = { multiplier: 1, angle: 140 };
+    this.state = { scale: 1, angle: 140 };
   }
 
   handleHover(status, resource){
@@ -27,15 +27,15 @@ class Stop extends React.Component {
     let { params, handleComplete } = this.props;
     let { x, y, radius, checkpoint } = params;
     let { title, resources } = checkpoint;
-    let { multiplier, angle }= this.state;
+    let { scale, angle }= this.state;
     if(checkpoint.highlight){
-      multiplier = multiplier * 2;
+      scale = scale * 1.7;
     }
     let complete = checkpoint.complete ? 'stop-is-complete' : 'stop-is-incomplete';
     let numberOfResources = checkpoint.resources.length;
-    let strokeWidth = (radius / 10) * multiplier;
+    let strokeWidth = (radius / 10) * scale;
 
-    let shape = createShape(x, y, radius, multiplier, numberOfResources);
+    let shape = createShape(x, y, radius, scale, numberOfResources);
     let resourcePoints = R.zip(checkpoint.resources, shape.path.points())
 
     let points = R.mapIndexed(([resource, point], index) => {
@@ -74,9 +74,9 @@ Stop.propTypes = {
 
 export default Stop;
 
-function createShape(x, y, radius, multiplier, numberOfResources){
+function createShape(x, y, radius, scale, numberOfResources){
   return SemiRegularPolygon({
     center: [x, y],
-    radii: R.times(() => radius * multiplier, numberOfResources)
+    radii: R.times(() => radius * scale, numberOfResources)
   });
 }
