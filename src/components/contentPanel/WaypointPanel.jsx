@@ -31,9 +31,11 @@ class WaypointPanel extends React.Component {
     let { id, title } = this.props.model;
     selection.waypoint = { id, title };
 
-    selection.type = "checkpoint";
+    selection.type = "checkpoint";    
 
     Actions.setLevel(selection);
+
+    this.handleHover(selection.id, false);
   }  
 
   _getSelection(item){
