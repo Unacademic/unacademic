@@ -29,15 +29,14 @@ class CheckpointPanel extends React.Component {
   }
 
   selectResource(selection){
-
-    this.handleHover(selection.id, false);
-
     let { id, title } = this.props.model;
     selection.checkpoint = { id, title };
 
     selection.type = "resource";    
 
     Actions.setLevel(selection);
+
+    this.handleHover(selection.id, false);
   }
 
   handleHover(item, status){
